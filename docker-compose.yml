@@ -11,3 +11,23 @@ services:
     environment:
       - DEBUG=1
       - SECRET_KEY=foo
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=doran
+      - SQL_USER=doran_user
+      - SQL_PASSWORD=doran_pw
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
+    depends_on:
+      - db
+  db:
+    image: postgres:11.4-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=doran_user
+      - POSTGRES_PASSWORD=doran_pw
+      - POSTGRES_DB=doran
+
+volumes:
+  postgres_data:
