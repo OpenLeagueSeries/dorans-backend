@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ChampLeaders from './champ';
 
 function Leaderboard() {
-  const[champs, setChamps] = useState('');
+  const[champs, setChamps] = useState([]);
 
   const board = champs.map((champ) =>
     <li>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function ChampLeaders (props) {
-  const[leaders, setLeaders] = useState('');
+  const[leaders, setLeaders] = useState([]);
 
   const list = leaders.map((leader) =>
     <li>{leader.name}: {leader.points}</li>
