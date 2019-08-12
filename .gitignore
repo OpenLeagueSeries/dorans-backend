@@ -86,4 +86,5 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-backend/staticfiles
+backend/static
+frontend/package-lock.json

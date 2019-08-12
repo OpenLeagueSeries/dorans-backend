@@ -3,11 +3,11 @@ version: '3.7'
 services:
   web:
     build: ./backend
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:9092
     volumes:
-      - ./backend/:/usr/src/app/
+      - ./backend/:/app/backend
     ports:
-      - 8000:8000
+      - 9092:9092
     environment:
       - DEBUG=1
       - SECRET_KEY=foo
@@ -28,6 +28,15 @@ services:
       - POSTGRES_USER=doran_user
       - POSTGRES_PASSWORD=doran_pw
       - POSTGRES_DB=doran
+  frontend:
+    build: ./frontend
+    command: npm start
+    volumes:
+      - ./frontend:/app/frontend
+      - node-modules:/app/frontend/node_modules
+    ports:
+      - "3000:3000"
 
 volumes:
+  node-modules:
   postgres_data:
