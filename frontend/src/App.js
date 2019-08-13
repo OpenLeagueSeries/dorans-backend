@@ -7,10 +7,8 @@ function handleSubmit(event) {
   const text = document.querySelector('#char-input').value
   fetch(`/char_count?text=${text}`) // FIXME
     .then(response => response.json())
-    .then(function(data) {
-      let chars = data.results
-      console.log(chars)
-    });
+    .then(data => document.querySelector('#char-count').textContent = data.count)
+    .catch(err => console.log(err))
 }
 
 function App() {
