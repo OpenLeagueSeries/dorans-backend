@@ -15,8 +15,12 @@ def char_count(request):
 
 def riot(request):
     summoner = cass.get_summoner(name=request.GET.get("summoner", ""))
+    print("{name} is a level {level} summoner on the {region} server.".format(name=summoner.name,
+                                                                          level=summoner.level,
+                                                                          region=summoner.region))
+
     return JsonResponse({
         "name": summoner.name,
         "level": summoner.level,
-        "region": summoner.region
+        "region": str(summoner.region)
     })
