@@ -19,6 +19,6 @@ from doran.views import char_count
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('char_count', char_count, name='char_count')
+    path('char_count', char_count, name='char_count'),
     path('riot', riot, name='riot')
 ]
