@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +49,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# mysite/settings.py
+# Channels
+ASGI_APPLICATION = 'doran.routing.application'
 
 ROOT_URLCONF = 'doran.urls'
 
