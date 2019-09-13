@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+const charSocket = new WebSocket(`ws://Localhost:9092/api/char_count`);
+const riotSocket = new WebSocket(`ws://Localhost:9092/api/riot`);
 
 function SummonerForm() {
     const [summ, setSumm] = useState('');
     const [count, setCount] = useState(0);
     const [level, setLevel] = useState(0);
     const [region, setRegion] = useState('');
-    const charSocket = new Websocket(`/char_count`);
-    const riotSocket = new Websocket(`/riot`);
 
     const checkCharCount = (summ) => {
       charSocket.send(summ);
