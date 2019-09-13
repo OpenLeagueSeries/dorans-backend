@@ -5,19 +5,21 @@ function SummonerForm() {
     const [count, setCount] = useState(0);
     const [level, setLevel] = useState(0);
     const [region, setRegion] = useState('');
+    const charSocket = new Websocket(`/char_count`);
+    const riotSocket = new Websocket(`/riot`);
 
     const checkCharCount = (summ) => {
-      fetch(`/char_count?text=${summ}`)
-        .then(response => response.json())
-        .then(data => setCount(data.count))
-        .catch(err => console.log(err));
+      charSocket.send(summ);
+    }
+    charSocket.onmessage = (ev) => {
+      setCount(ev.data);
     }
 
     const getData = (summ) => {
-      fetch(`/riot?summoner=${summ}`)
-      .then(response => response.json())
-      .then(data => { setLevel(data.level); setRegion(data.level); })
-      .catch(err => console.log(err));
+      riotSocket.send(summ);
+    }
+    riotSocket.onmessage = (ev) => {
+      setLevel(ev.data);
     }
 
     return (
