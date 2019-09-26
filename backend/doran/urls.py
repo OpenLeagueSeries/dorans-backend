@@ -16,12 +16,9 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
-from doran.views import char_count, riot
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('char_count', char_count, name='char_count'),
-    path('riot', riot, name='riot')
 ]
 
 urlpatterns += [
