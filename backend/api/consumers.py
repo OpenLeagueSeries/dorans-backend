@@ -3,7 +3,7 @@ from channels.consumer import SyncConsumer
 import json
 import cassiopeia as cass
 
-cass.set_riot_api_key("RGAPI-f93684c3-3280-4ff5-8cf6-ff5cecb1a0af")  # This overrides the value set in your configuration/settings.
+cass.set_riot_api_key("RGAPI-1802557a-bd2d-4fde-b95a-d2fd4949c5b9")  # This overrides the value set in your configuration/settings.
 cass.set_default_region("NA")
 
 
