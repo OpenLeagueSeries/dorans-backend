@@ -2,6 +2,6 @@ Django==2.2.4
 channels==2.2.0
 psycopg2==2.7.3.2
 pytz==2017.3
-django-filter==2.2.0
+django-filter==2.4.0
 markdown==3.1.1
 cassiopeia==4.0.4
